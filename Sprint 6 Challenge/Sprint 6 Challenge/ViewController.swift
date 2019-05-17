@@ -33,9 +33,9 @@ class ViewController: UIViewController {
         // unlock if >80%
         if sender.value >= (sliderViewContainer.frame.width * 0.8 - sliderView.frame.width) {
             sliderUnlocked()
-            sliderViewContainer.isUserInteractionEnabled = false
+//            sliderViewContainer.isUserInteractionEnabled = false
             resetBtn.tintColor = .white
-        } else if sender.value != 0.0, sender.value <= (sliderViewContainer.frame.width * 0.1) {
+        } else if sender.value != 0.0, sender.value <= (sliderViewContainer.frame.width * 0.01) {
             sliderReset()
         }
     }
