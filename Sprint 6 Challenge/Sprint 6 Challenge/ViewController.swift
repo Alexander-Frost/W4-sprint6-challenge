@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet var sliderView: UIView!
     @IBOutlet var sliderViewContainer: UIView!
     @IBOutlet var sliderViewConstraint: NSLayoutConstraint!
+    @IBOutlet weak var customControl: CustomControl!
+
     
     // MARK: - Actions
     @IBAction func resetBtnPressed(_ sender: UIBarButtonItem) {
@@ -25,26 +27,45 @@ class ViewController: UIViewController {
     }
     
     @IBAction func swipeDrag(_ sender: CustomControl){
-        // set value to width of container
-        sender.springBackValue = sliderViewContainer.frame.width - sliderView.frame.width
-        // set constraint of slider
-        sliderViewConstraint.constant = sender.value - (sliderView.frame.width / 2)
-
-        // unlock if >80%
-        if sender.value >= (sliderViewContainer.frame.width * 0.8 - sliderView.frame.width) {
+        print(sender.value)
+        sliderViewConstraint.constant = CGFloat(sender.value * 300)
+        if sender.value > 0.80 {
             sliderUnlocked()
-//            sliderViewContainer.isUserInteractionEnabled = false
-            resetBtn.tintColor = .white
-        } else if sender.value != 0.0, sender.value <= (sliderViewContainer.frame.width * 0.01) {
+            sender.value = Double(customControl.bounds.width)
+            customControl.isEnabled = false
+        } else if sender.value < 0.80 {
             sliderReset()
+//            UIView.animate(withDuration: 1.0) {
+//                self.sliderViewConstraint.constant = 0
+//            }
         }
+        
+        
+        
+        
+        
+//        // set value to width of container
+//        sender.springBackValue = sliderViewContainer.frame.width - sliderView.frame.width
+//        // set constraint of slider
+//        sliderViewConstraint.constant = sender.value - (sliderView.frame.width / 2)
+//
+//        // unlock if >80%
+//        if sender.value >= (sliderViewContainer.frame.width * 0.8){ //- sliderView.frame.width) {
+//            sliderUnlocked()
+//            sender.value = sliderViewContainer.frame.width
+//            sliderViewContainer.isUserInteractionEnabled = false
+//            sliderView.isUserInteractionEnabled = false
+//        } else if sender.value < (sliderViewContainer.frame.width * 0.01) { //sender.value != 0.0
+//            print("RESET")
+//            sliderReset()
+//        }
     }
     
     // MARK: - VC Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        sliderViewConstraint.constant = 0
+//        sliderViewConstraint.constant = 0
     }
 
     func setup(){
@@ -58,6 +79,7 @@ class ViewController: UIViewController {
         sliderViewContainer.layer.masksToBounds = true
         fullView.layer.cornerRadius = 10
         fullView.layer.masksToBounds = true
+        sliderView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     // move to begining of slider view
@@ -65,8 +87,10 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 1.0, animations: {
             self.lockImgView.image = UIImage(named: "Locked")
             self.resetBtn.tintColor = .clear
+            self.customControl.isEnabled = true
             self.resetBtn.isEnabled = false
             self.view.backgroundColor = .white
+            self.resetBtn.tintColor = .white
             self.sliderViewConstraint.constant = 0
             self.view.layoutIfNeeded()
         })
@@ -75,11 +99,9 @@ class ViewController: UIViewController {
     func sliderUnlocked(){
         UIView.animate(withDuration: 1.0, animations: {
             self.lockImgView.image = UIImage(named: "Unlocked")
-            self.resetBtn.tintColor = .red
-            self.resetBtn.isEnabled = true
-            self.sliderViewConstraint.constant = self.sliderViewContainer.frame.width
             self.view.backgroundColor = .orange
-            self.view.layoutIfNeeded()
+            self.resetBtn.tintColor = .white
+            self.resetBtn.isEnabled = true
         })
     }
 }

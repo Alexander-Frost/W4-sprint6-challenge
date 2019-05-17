@@ -81,6 +81,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="customControl" destination="S2Q-fp-rBj" id="kvy-Fz-tUa"/>
                         <outlet property="fullView" destination="4A5-qa-hBZ" id="M1J-Mg-OW6"/>
                         <outlet property="lockImgView" destination="KbB-CA-urX" id="ccy-Yp-SQG"/>
                         <outlet property="resetBtn" destination="MZu-5C-amz" id="34c-oF-9tu"/>
