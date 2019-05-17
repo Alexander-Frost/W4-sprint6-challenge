@@ -51,6 +51,10 @@ class ViewController: UIViewController {
         lockImgView.image = UIImage(named: "Locked")
         sliderView.makeCircle()
         sliderView.backgroundColor = .green
+        sliderViewContainer.layer.cornerRadius = 10
+        sliderViewContainer.layer.masksToBounds = true
+        fullView.layer.cornerRadius = 10
+        fullView.layer.masksToBounds = true
     }
     
     // move to begining of slider view
