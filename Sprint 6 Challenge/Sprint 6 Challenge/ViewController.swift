@@ -29,13 +29,13 @@ class ViewController: UIViewController {
         sender.springBackValue = sliderViewContainer.frame.width - sliderView.frame.width
         // set constraint of slider
         sliderViewConstraint.constant = sender.value - (sliderView.frame.width / 2)
-        
+
         // unlock if >80%
         if sender.value >= (sliderViewContainer.frame.width * 0.8 - sliderView.frame.width) {
             sliderUnlocked()
             sliderViewContainer.isUserInteractionEnabled = false
             resetBtn.tintColor = .white
-        } else if sender.value != 0.0, sender.value <= sliderViewContainer.frame.width {
+        } else if sender.value != 0.0, sender.value <= (sliderViewContainer.frame.width * 0.1) {
             sliderReset()
         }
     }
@@ -44,6 +44,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        sliderViewConstraint.constant = 0
     }
 
     func setup(){
@@ -66,7 +67,7 @@ class ViewController: UIViewController {
             self.resetBtn.tintColor = .clear
             self.resetBtn.isEnabled = false
             self.view.backgroundColor = .white
-            self.sliderViewConstraint.constant = 8
+            self.sliderViewConstraint.constant = 0
             self.view.layoutIfNeeded()
         })
     }

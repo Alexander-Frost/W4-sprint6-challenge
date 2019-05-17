@@ -49,7 +49,7 @@
                                             <constraint firstAttribute="height" constant="63" id="nMT-91-XUg"/>
                                         </constraints>
                                         <connections>
-                                            <action selector="swipeDrag:" destination="BYZ-38-t0r" eventType="valueChanged" id="kbk-sn-vZ6"/>
+                                            <action selector="swipeDrag:" destination="BYZ-38-t0r" eventType="valueChanged" id="cs9-zH-6j1"/>
                                         </connections>
                                     </view>
                                 </subviews>
