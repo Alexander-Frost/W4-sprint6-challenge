@@ -34,6 +34,7 @@ class ViewController: UIViewController {
         if sender.value >= (sliderViewContainer.frame.width * 0.8 - sliderView.frame.width) {
             sliderUnlocked()
             sliderViewContainer.isUserInteractionEnabled = false
+            resetBtn.tintColor = .white
         } else if sender.value != 0.0, sender.value <= sliderViewContainer.frame.width {
             sliderReset()
         }
@@ -51,6 +52,7 @@ class ViewController: UIViewController {
         lockImgView.image = UIImage(named: "Locked")
         sliderView.makeCircle()
         sliderView.backgroundColor = .green
+        sliderViewContainer.backgroundColor = .gray
         sliderViewContainer.layer.cornerRadius = 10
         sliderViewContainer.layer.masksToBounds = true
         fullView.layer.cornerRadius = 10
@@ -63,6 +65,7 @@ class ViewController: UIViewController {
             self.lockImgView.image = UIImage(named: "Locked")
             self.resetBtn.tintColor = .clear
             self.resetBtn.isEnabled = false
+            self.view.backgroundColor = .white
             self.sliderViewConstraint.constant = 8
             self.view.layoutIfNeeded()
         })
@@ -74,6 +77,7 @@ class ViewController: UIViewController {
             self.resetBtn.tintColor = .red
             self.resetBtn.isEnabled = true
             self.sliderViewConstraint.constant = self.sliderViewContainer.frame.width
+            self.view.backgroundColor = .orange
             self.view.layoutIfNeeded()
         })
     }

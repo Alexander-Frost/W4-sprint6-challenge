@@ -12,13 +12,19 @@ class CustomControl: UIControl {
     
     var value: CGFloat = 0.0
     var resetValue: CGFloat = 0.0
-    var springBackValue: CGFloat = 80.0 // reset if drag >80% of the way
+    var springBackValue: CGFloat = 80.0 // reset if drag >80% of the way - set initially to width
     
-    func updateValue(at touch: UITouch){
-        let touchPoint = touch.location(in: self)
+    func updateValue(at touch: CGPoint){
         // set to x range
-        let touchX = touchPoint.x / bounds.width
-        value = touchX
+        let touchX = touch.x
+        
+        if touchX < resetValue { // reset to origin
+            value = resetValue
+        } else if touchX > springBackValue { // move to end of frame
+            value = springBackValue
+        } else {
+            value = touchX
+        }
     }
     
     // MARK: - Tracking
@@ -27,7 +33,7 @@ class CustomControl: UIControl {
         let touchPoint = touch.location(in: self)
         if bounds.contains(touchPoint) {
             sendActions(for: [.touchDown, .valueChanged])
-            updateValue(at: touch)
+            updateValue(at: touchPoint)
         }
         
         return true
@@ -37,7 +43,7 @@ class CustomControl: UIControl {
         let touchPoint = touch.location(in: self)
         if bounds.contains(touchPoint){
             sendActions(for: [.touchDragInside, .valueChanged])
-            updateValue(at: touch)
+            updateValue(at: touchPoint)
         } else {
             sendActions(for: [.touchDragOutside, .valueChanged])
             value = 0.0
@@ -52,7 +58,7 @@ class CustomControl: UIControl {
         
         if bounds.contains(touchPoint) {
             sendActions(for: [.touchUpInside, .valueChanged])
-            updateValue(at: touch)
+            updateValue(at: touchPoint)
         } else {
             sendActions(for: [.touchUpOutside, .valueChanged])
             value = 0.0
