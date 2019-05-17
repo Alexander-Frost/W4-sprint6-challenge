@@ -37,8 +37,10 @@ class CustomControl: UIControl {
         let touchPoint = touch.location(in: self)
         if bounds.contains(touchPoint){
             sendActions(for: [.touchDragInside, .valueChanged])
+            updateValue(at: touch)
         } else {
             sendActions(for: [.touchDragOutside, .valueChanged])
+            value = 0.0
         }
         
         return true
@@ -47,11 +49,13 @@ class CustomControl: UIControl {
     override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
         guard let touch = touch else { return }
         let touchPoint = touch.location(in: self)
+        
         if bounds.contains(touchPoint) {
             sendActions(for: [.touchUpInside, .valueChanged])
             updateValue(at: touch)
         } else {
             sendActions(for: [.touchUpOutside, .valueChanged])
+            value = 0.0
         }
     }
     
