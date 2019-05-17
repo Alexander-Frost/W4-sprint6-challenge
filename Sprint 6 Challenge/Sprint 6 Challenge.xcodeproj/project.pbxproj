@@ -13,6 +13,8 @@
 		468B89E82137397500E7FF73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 468B89E72137397500E7FF73 /* Assets.xcassets */; };
 		468B89EB2137397500E7FF73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 468B89E92137397500E7FF73 /* LaunchScreen.storyboard */; };
 		FAAD8FB3228F0EF100C0DCDA /* CustomControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAD8FB2228F0EF100C0DCDA /* CustomControl.swift */; };
+		FAAD8FB5228F128600C0DCDA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAD8FB4228F128600C0DCDA /* Extensions.swift */; };
+		FAAD8FB7228F1DD300C0DCDA /* AppearanceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAD8FB6228F1DD300C0DCDA /* AppearanceHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		468B89EA2137397500E7FF73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		468B89EC2137397500E7FF73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAAD8FB2228F0EF100C0DCDA /* CustomControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomControl.swift; sourceTree = "<group>"; };
+		FAAD8FB4228F128600C0DCDA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		FAAD8FB6228F1DD300C0DCDA /* AppearanceHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +61,10 @@
 			isa = PBXGroup;
 			children = (
 				468B89E02137397400E7FF73 /* AppDelegate.swift */,
+				FAAD8FB6228F1DD300C0DCDA /* AppearanceHelper.swift */,
 				468B89E22137397400E7FF73 /* ViewController.swift */,
 				FAAD8FB2228F0EF100C0DCDA /* CustomControl.swift */,
+				FAAD8FB4228F128600C0DCDA /* Extensions.swift */,
 				468B89E42137397400E7FF73 /* Main.storyboard */,
 				468B89E72137397500E7FF73 /* Assets.xcassets */,
 				468B89E92137397500E7FF73 /* LaunchScreen.storyboard */,
@@ -141,6 +147,8 @@
 				468B89E32137397400E7FF73 /* ViewController.swift in Sources */,
 				FAAD8FB3228F0EF100C0DCDA /* CustomControl.swift in Sources */,
 				468B89E12137397400E7FF73 /* AppDelegate.swift in Sources */,
+				FAAD8FB7228F1DD300C0DCDA /* AppearanceHelper.swift in Sources */,
+				FAAD8FB5228F128600C0DCDA /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

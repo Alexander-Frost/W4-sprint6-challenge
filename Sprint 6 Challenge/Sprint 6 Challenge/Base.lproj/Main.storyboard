@@ -18,31 +18,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4A5-qa-hBZ">
-                                <rect key="frame" x="63" y="294" width="288" height="309"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4A5-qa-hBZ">
+                                <rect key="frame" x="63" y="294" width="290" height="330"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KbB-CA-urX">
-                                        <rect key="frame" x="8" y="8" width="272" height="206"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KbB-CA-urX">
+                                        <rect key="frame" x="8" y="8" width="253" height="227"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="KbB-CA-urX" secondAttribute="height" multiplier="1:1" id="79K-88-YdX"/>
+                                        </constraints>
                                     </imageView>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S2Q-fp-rBj">
-                                        <rect key="frame" x="8" y="222" width="272" height="79"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S2Q-fp-rBj" customClass="CustomControl" customModule="Sprint_6_Challenge" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="259" width="272" height="63"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kHJ-qv-hJE">
-                                                <rect key="frame" x="8" y="8" width="63" height="63"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kHJ-qv-hJE">
+                                                <rect key="frame" x="8" y="0.0" width="63" height="63"/>
                                                 <color key="backgroundColor" red="0.70686935740000001" green="0.89879399650000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="63" id="0Cm-DZ-d4R"/>
+                                                    <constraint firstAttribute="width" constant="63" id="zTG-NN-q6K"/>
+                                                </constraints>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="kHJ-qv-hJE" firstAttribute="leading" secondItem="S2Q-fp-rBj" secondAttribute="leading" constant="8" id="09y-1v-6XM"/>
+                                            <constraint firstAttribute="width" constant="272" id="ALT-Gh-QSk"/>
+                                            <constraint firstItem="kHJ-qv-hJE" firstAttribute="centerY" secondItem="S2Q-fp-rBj" secondAttribute="centerY" id="e5H-4R-Mxo"/>
+                                            <constraint firstAttribute="height" constant="63" id="nMT-91-XUg"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="swipeDrag:" destination="BYZ-38-t0r" eventType="valueChanged" id="kbk-sn-vZ6"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.94509803920000002" green="0.64705882349999999" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="S2Q-fp-rBj" firstAttribute="top" secondItem="KbB-CA-urX" secondAttribute="bottom" constant="8" id="4qc-Ez-jlY"/>
+                                    <constraint firstAttribute="width" constant="290" id="WGg-ei-tJi"/>
+                                    <constraint firstItem="KbB-CA-urX" firstAttribute="top" secondItem="4A5-qa-hBZ" secondAttribute="top" constant="8" id="bFQ-Au-0vj"/>
+                                    <constraint firstAttribute="trailing" secondItem="S2Q-fp-rBj" secondAttribute="trailing" constant="8" id="h8p-l2-Dwk"/>
+                                    <constraint firstItem="KbB-CA-urX" firstAttribute="leading" secondItem="4A5-qa-hBZ" secondAttribute="leading" constant="8" id="nE3-Ar-JkH"/>
+                                    <constraint firstAttribute="height" constant="330" id="qzo-hL-k9O"/>
+                                    <constraint firstItem="S2Q-fp-rBj" firstAttribute="leading" secondItem="4A5-qa-hBZ" secondAttribute="leading" constant="8" id="w1Z-nF-bvu"/>
+                                    <constraint firstAttribute="trailing" secondItem="KbB-CA-urX" secondAttribute="trailing" constant="8" id="w8d-zl-w1t"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="4A5-qa-hBZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="63" id="P3d-z8-Lqg"/>
+                            <constraint firstItem="4A5-qa-hBZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="206" id="aHE-dL-nbZ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Hello!" id="KUx-fG-3FE">
@@ -57,6 +83,7 @@
                         <outlet property="lockImgView" destination="KbB-CA-urX" id="ccy-Yp-SQG"/>
                         <outlet property="resetBtn" destination="MZu-5C-amz" id="34c-oF-9tu"/>
                         <outlet property="sliderView" destination="kHJ-qv-hJE" id="tH7-8p-rk9"/>
+                        <outlet property="sliderViewConstraint" destination="09y-1v-6XM" id="XNh-22-9sv"/>
                         <outlet property="sliderViewContainer" destination="S2Q-fp-rBj" id="Cjn-BO-8Se"/>
                     </connections>
                 </viewController>

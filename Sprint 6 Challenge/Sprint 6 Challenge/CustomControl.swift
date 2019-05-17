@@ -9,16 +9,53 @@
 import UIKit
 
 class CustomControl: UIControl {
+    
+    var value: CGFloat = 0.0
+    var resetValue: CGFloat = 0.0
+    var springBackValue: CGFloat = 80.0 // reset if drag >80% of the way
+    
+    func updateValue(at touch: UITouch){
+        let touchPoint = touch.location(in: self)
+        // set to x range
+        let touchX = touchPoint.x / bounds.width
+        value = touchX
+    }
+    
+    // MARK: - Tracking
+    
     override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
-        <#code#>
+        let touchPoint = touch.location(in: self)
+        if bounds.contains(touchPoint) {
+            sendActions(for: [.touchDown, .valueChanged])
+            updateValue(at: touch)
+        }
+        
+        return true
     }
+    
     override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
-        <#code#>
+        let touchPoint = touch.location(in: self)
+        if bounds.contains(touchPoint){
+            sendActions(for: [.touchDragInside, .valueChanged])
+        } else {
+            sendActions(for: [.touchDragOutside, .valueChanged])
+        }
+        
+        return true
     }
+    
     override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
-        <#code#>
+        guard let touch = touch else { return }
+        let touchPoint = touch.location(in: self)
+        if bounds.contains(touchPoint) {
+            sendActions(for: [.touchUpInside, .valueChanged])
+            updateValue(at: touch)
+        } else {
+            sendActions(for: [.touchUpOutside, .valueChanged])
+        }
     }
+    
     override func cancelTracking(with event: UIEvent?) {
-        <#code#>
+        sendActions(for: .touchCancel)
     }
 }
