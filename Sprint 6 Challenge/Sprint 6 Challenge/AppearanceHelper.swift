@@ -18,3 +18,4 @@ class AppearanceHelper {
         UINavigationBar.appearance().tintColor = .white
     }
 }
+var finishEditing: Bool = false

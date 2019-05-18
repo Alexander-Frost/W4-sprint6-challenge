@@ -33,6 +33,10 @@ class ViewController: UIViewController {
             sliderUnlocked()
             sender.value = Double(customControl.bounds.width)
             customControl.isEnabled = false
+            print(finishEditing, "HERE")
+        } else if finishEditing {
+            print(finishEditing, "FINSIHED")
+            sliderReset()
         }
 //        else { //if sender.value < 0.80 {
 //            sliderReset()
@@ -91,6 +95,7 @@ class ViewController: UIViewController {
             self.view.backgroundColor = .white
             self.resetBtn.tintColor = .white
             self.sliderViewConstraint.constant = 0
+            finishEditing = false
             self.view.layoutIfNeeded()
         })
     }
