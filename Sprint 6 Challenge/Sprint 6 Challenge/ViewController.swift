@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet var sliderView: UIView!
     @IBOutlet var sliderViewContainer: UIView!
     @IBOutlet var sliderViewConstraint: NSLayoutConstraint!
-    @IBOutlet weak var customControl: CustomControl!
+    @IBOutlet var customControl: CustomControl!
 
     
     // MARK: - Actions
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     
     @IBAction func swipeDrag(_ sender: CustomControl){
         print(sender.value)
-        sliderViewConstraint.constant = CGFloat(sender.value * 300)
+        sliderViewConstraint.constant = CGFloat(sender.value * 272) // width of sliderViewContainer
         if sender.value > 0.80 {
             sliderUnlocked()
             sender.value = Double(customControl.bounds.width)
@@ -40,8 +40,6 @@ class ViewController: UIViewController {
 ////                self.sliderViewConstraint.constant = 0
 ////            }
 //        }
-        
-        
         
         
         
