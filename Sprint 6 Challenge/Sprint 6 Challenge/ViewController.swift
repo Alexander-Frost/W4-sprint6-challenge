@@ -33,12 +33,13 @@ class ViewController: UIViewController {
             sliderUnlocked()
             sender.value = Double(customControl.bounds.width)
             customControl.isEnabled = false
-        } else if sender.value < 0.80 {
-            sliderReset()
-//            UIView.animate(withDuration: 1.0) {
-//                self.sliderViewConstraint.constant = 0
-//            }
         }
+//        else { //if sender.value < 0.80 {
+//            sliderReset()
+////            UIView.animate(withDuration: 1.0) {
+////                self.sliderViewConstraint.constant = 0
+////            }
+//        }
         
         
         
@@ -102,6 +103,8 @@ class ViewController: UIViewController {
             self.view.backgroundColor = .orange
             self.resetBtn.tintColor = .white
             self.resetBtn.isEnabled = true
+            self.view.layoutIfNeeded()
+
         })
     }
 }
